@@ -2,6 +2,7 @@ formatter: "markdown"
 
 sections:
   hide:
+    - modules
     - providers
 
 sort:
