@@ -21,9 +21,8 @@ resource "google_redis_instance" "agent_storage" {
   redis_version  = "REDIS_6_X"
 }
 
-resource "google_compute_address" "agent_external_server" {
-  name   = "agent-storage-${var.name_suffix}"
-  region = var.region
+resource "google_compute_global_address" "agent_external_server" {
+  name = "agent-storage-${var.region}-${var.name_suffix}"
 }
 
 data "http" "update_external_alb_dns" {
@@ -35,7 +34,7 @@ data "http" "update_external_alb_dns" {
   }
   request_body = jsonencode({
     hostname              = "${var.agent_storage_zone_slug}.${var.team_id}.${var.agent_storage_domain}."
-    loadBalancerIPAddress = "${google_compute_address.agent_external_server.address}"
+    loadBalancerIPAddress = "${google_compute_global_address.agent_external_server.address}"
   })
 
   lifecycle {
