@@ -7,7 +7,7 @@ variable "agent_storage_domain" {
 variable "agent_storage_zone_slug" {
   type        = string
   description = "Zone slug for use with self-hosted agent storage"
-  default     = "test"
+  default     = "gke"
 }
 
 variable "api_host" {
