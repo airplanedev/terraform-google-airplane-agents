@@ -12,10 +12,6 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 |------|---------|
 | <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.12.0 |
 
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
