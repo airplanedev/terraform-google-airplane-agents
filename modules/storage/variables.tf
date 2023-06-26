@@ -33,6 +33,11 @@ variable "region" {
   description = "Region for agent"
 }
 
+variable "service_account_email" {
+  type        = string
+  description = "Email for service account"
+}
+
 variable "team_id" {
   type        = string
   description = "Airplane team ID - retrieve via `airplane auth info`"

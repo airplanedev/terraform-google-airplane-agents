@@ -1,8 +1,3 @@
-resource "google_service_account" "agent_storage" {
-  account_id   = "ap-agent-${var.name_suffix}"
-  display_name = "Airplane agent service account"
-}
-
 resource "google_storage_bucket" "agent_storage" {
   name          = "airplane-agent-storage-${var.name_suffix}"
   location      = var.region
@@ -15,7 +10,7 @@ resource "google_storage_bucket" "agent_storage" {
 resource "google_storage_bucket_iam_member" "policy" {
   bucket = google_storage_bucket.agent_storage.name
   role   = "roles/storage.admin"
-  member = "serviceAccount:${google_service_account.agent_storage.email}"
+  member = "serviceAccount:${var.service_account_email}"
 }
 
 resource "google_redis_instance" "agent_storage" {

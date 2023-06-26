@@ -1,11 +1,3 @@
-output "agent_service_account_id" {
-  value = google_service_account.agent_storage.id
-}
-
-output "agent_service_account_email" {
-  value = google_service_account.agent_storage.email
-}
-
 output "storage_bucket_name" {
   value = google_storage_bucket.agent_storage.name
 }
