@@ -39,8 +39,8 @@ data "http" "update_external_alb_dns" {
     "X-Airplane-API-Key" = var.api_token
   }
   request_body = jsonencode({
-    hostname             = "${var.agent_storage_zone_slug}.${var.team_id}.${var.agent_storage_domain}."
-    loadBalancerHostname = "${aws_alb.external[0].dns_name}."
+    hostname              = "${var.agent_storage_zone_slug}.${var.team_id}.${var.agent_storage_domain}."
+    loadBalancerIPAddress = "${google_compute_address.agent_external_server.address}"
   })
 
   lifecycle {
