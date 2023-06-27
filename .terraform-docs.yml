@@ -1,0 +1,10 @@
+formatter: "markdown"
+
+sections:
+  hide:
+    - modules
+    - providers
+
+sort:
+  enabled: true
+  by: required
