@@ -30,9 +30,9 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="input_region"></a> [region](#input\_region) | Region for agent | `string` | n/a | yes |
 | <a name="input_service_account_email"></a> [service\_account\_email](#input\_service\_account\_email) | Email for service account | `string` | n/a | yes |
 | <a name="input_team_id"></a> [team\_id](#input\_team\_id) | Airplane team ID - retrieve via `airplane auth info` | `string` | n/a | yes |
-| <a name="input_agent_storage_domain"></a> [agent\_storage\_domain](#input\_agent\_storage\_domain) | For development purposes only | `string` | `"d.airstage.app"` | no |
+| <a name="input_agent_storage_domain"></a> [agent\_storage\_domain](#input\_agent\_storage\_domain) | For development purposes only | `string` | `"d.airplane.sh"` | no |
 | <a name="input_agent_storage_zone_slug"></a> [agent\_storage\_zone\_slug](#input\_agent\_storage\_zone\_slug) | Zone slug for use with self-hosted agent storage | `string` | `"gke"` | no |
-| <a name="input_api_host"></a> [api\_host](#input\_api\_host) | For development purposes only | `string` | `"https://api.airstage.app"` | no |
+| <a name="input_api_host"></a> [api\_host](#input\_api\_host) | For development purposes only | `string` | `"https://api.airplane.dev"` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | Suffix to be added to all names; a dash will be automatically added at the beginning | `string` | `"gke"` | no |
 
 ## Outputs
