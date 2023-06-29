@@ -7,7 +7,7 @@ output "agent_server_ip" {
 }
 
 output "service_account_email" {
-  value = var.service_account_email != "" ? var.service_account_email : google_storage_bucket.agent_storage[0].name
+  value = var.service_account_email != "" ? var.service_account_email : google_service_account.agent_storage[0].email
 }
 
 output "storage_bucket_name" {

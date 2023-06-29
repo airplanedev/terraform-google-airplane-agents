@@ -1,17 +1,18 @@
 locals {
-  name_suffix = var.name_suffix != "" ? "-${var.name_suffix}" : "-${var.agent_storage_zone_slug}"
+  name_suffix        = var.name_suffix != "" ? "${var.name_suffix}" : "${var.agent_storage_zone_slug}"
+  service_account_id = var.service_account_email != "" ? "projects/${var.project}/serviceAccounts/${var.service_account_email}" : ""
 }
 
 resource "google_service_account" "agent_storage" {
   account_id   = "ap-agent-${local.name_suffix}"
   display_name = "Airplane agent service account for zone"
-  count        = var.service_account_email != "" ? 1 : 0
+  count        = var.service_account_email == "" ? 1 : 0
 }
 
 resource "google_service_account_iam_member" "workload_identity_role" {
   service_account_id = (
-    var.service_account_email != "" ?
-    var.service_account_email : google_service_account.agent_storage[0].id
+    local.service_account_id != "" ?
+    local.service_account_id : google_service_account.agent_storage[0].id
   )
   role   = "roles/iam.workloadIdentityUser"
   member = "serviceAccount:${var.project}.svc.id.goog[${var.kube_namespace}/airplane-agent]"
@@ -30,7 +31,7 @@ resource "google_storage_bucket" "agent_storage" {
 resource "google_storage_bucket_iam_member" "policy" {
   bucket = google_storage_bucket.agent_storage.name
   role   = "roles/storage.admin"
-  member = "serviceAccount:${var.service_account_email != "" ? var.service_account_email : google_service_account.agent_storage[0].id}"
+  member = "serviceAccount:${var.service_account_email != "" ? var.service_account_email : google_service_account.agent_storage[0].email}"
 }
 
 resource "google_redis_instance" "agent_storage" {
