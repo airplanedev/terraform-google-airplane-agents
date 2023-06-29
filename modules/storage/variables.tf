@@ -1,7 +1,7 @@
 variable "agent_storage_domain" {
   type        = string
   description = "For development purposes only"
-  default     = "d.airstage.app"
+  default     = "d.airplane.sh"
 }
 
 variable "agent_storage_zone_slug" {
@@ -13,7 +13,7 @@ variable "agent_storage_zone_slug" {
 variable "api_host" {
   type        = string
   description = "For development purposes only"
-  default     = "https://api.airstage.app"
+  default     = "https://api.airplane.dev"
 }
 
 variable "api_token" {
