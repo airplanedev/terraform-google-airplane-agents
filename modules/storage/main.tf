@@ -1,5 +1,25 @@
+locals {
+  name_suffix = var.name_suffix != "" ? "-${var.name_suffix}" : "-${var.agent_storage_zone_slug}"
+}
+
+resource "google_service_account" "agent_storage" {
+  account_id   = "ap-agent-${local.name_suffix}"
+  display_name = "Airplane agent service account for zone"
+  count        = var.service_account_email != "" ? 1 : 0
+}
+
+resource "google_service_account_iam_member" "workload_identity_role" {
+  service_account_id = (
+    var.service_account_email != "" ?
+    var.service_account_email : google_service_account.agent_storage[0].id
+  )
+  role   = "roles/iam.workloadIdentityUser"
+  member = "serviceAccount:${var.project}.svc.id.goog[${var.kube_namespace}/airplane-agent]"
+  count  = var.kube_namespace != "" ? 1 : 0
+}
+
 resource "google_storage_bucket" "agent_storage" {
-  name          = "airplane-agent-storage-${var.name_suffix}"
+  name          = "airplane-agent-storage-${local.name_suffix}"
   location      = var.region
   storage_class = "STANDARD"
 
@@ -10,11 +30,11 @@ resource "google_storage_bucket" "agent_storage" {
 resource "google_storage_bucket_iam_member" "policy" {
   bucket = google_storage_bucket.agent_storage.name
   role   = "roles/storage.admin"
-  member = "serviceAccount:${var.service_account_email}"
+  member = "serviceAccount:${var.service_account_email != "" ? var.service_account_email : google_service_account.agent_storage[0].id}"
 }
 
 resource "google_redis_instance" "agent_storage" {
-  name           = "airplane-agent-storage-${var.name_suffix}"
+  name           = "airplane-agent-storage-${local.name_suffix}"
   tier           = "STANDARD_HA"
   region         = var.region
   memory_size_gb = 1
@@ -22,7 +42,7 @@ resource "google_redis_instance" "agent_storage" {
 }
 
 resource "google_compute_global_address" "agent_external_server" {
-  name = "agent-storage-${var.region}-${var.name_suffix}"
+  name = "agent-storage-${var.region}-${local.name_suffix}"
 }
 
 data "http" "update_external_alb_dns" {
