@@ -34,6 +34,12 @@ variable "kube_namespace" {
   default     = ""
 }
 
+variable "kube_service_account_name" {
+  type        = string
+  description = "Name of the agent service account in Kubernetes"
+  default     = "airplane-agent"
+}
+
 variable "project" {
   type        = string
   description = "GCP project name"
