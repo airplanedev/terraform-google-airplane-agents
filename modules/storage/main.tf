@@ -15,7 +15,7 @@ resource "google_service_account_iam_member" "workload_identity_role" {
     local.service_account_id : google_service_account.agent_storage[0].id
   )
   role   = "roles/iam.workloadIdentityUser"
-  member = "serviceAccount:${var.project}.svc.id.goog[${var.kube_namespace}/airplane-agent]"
+  member = "serviceAccount:${var.project}.svc.id.goog[${var.kube_namespace}/${var.kube_service_account_name}]"
   count  = var.kube_namespace != "" ? 1 : 0
 }
 
