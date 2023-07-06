@@ -36,6 +36,7 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="input_agent_storage_zone_slug"></a> [agent\_storage\_zone\_slug](#input\_agent\_storage\_zone\_slug) | Zone slug for use with self-hosted agent storage | `string` | `"gke"` | no |
 | <a name="input_api_host"></a> [api\_host](#input\_api\_host) | For development purposes only | `string` | `"https://api.airplane.dev"` | no |
 | <a name="input_kube_namespace"></a> [kube\_namespace](#input\_kube\_namespace) | Kubernetes namepsace that agents will run in; if unset, no binding will be made between the service account and GKE | `string` | `""` | no |
+| <a name="input_kube_service_account_name"></a> [kube\_service\_account\_name](#input\_kube\_service\_account\_name) | Name of the agent service account in Kubernetes | `string` | `"airplane-agent"` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | Suffix to be added to all names; if unset, the zone slug will be used | `string` | `""` | no |
 | <a name="input_service_account_email"></a> [service\_account\_email](#input\_service\_account\_email) | Email of an existing service account to use for the agent; if unset, a new service account will be created | `string` | `""` | no |
 
