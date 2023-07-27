@@ -33,7 +33,7 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="input_region"></a> [region](#input\_region) | Region for agent | `string` | n/a | yes |
 | <a name="input_team_id"></a> [team\_id](#input\_team\_id) | Airplane team ID - retrieve via `airplane auth info` | `string` | n/a | yes |
 | <a name="input_agent_storage_domain"></a> [agent\_storage\_domain](#input\_agent\_storage\_domain) | For development purposes only | `string` | `"d.airplane.sh"` | no |
-| <a name="input_agent_storage_zone_slug"></a> [agent\_storage\_zone\_slug](#input\_agent\_storage\_zone\_slug) | Zone slug for use with self-hosted agent storage | `string` | `"gke"` | no |
+| <a name="input_agent_storage_zone_slug"></a> [agent\_storage\_zone\_slug](#input\_agent\_storage\_zone\_slug) | Zone slug for use with self-hosted agent storage. Can contain lowercase letters and numbers only (no dashes, underscores, spaces, uppercase letters, etc.). | `string` | `"gke"` | no |
 | <a name="input_api_host"></a> [api\_host](#input\_api\_host) | For development purposes only | `string` | `"https://api.airplane.dev"` | no |
 | <a name="input_kube_namespace"></a> [kube\_namespace](#input\_kube\_namespace) | Kubernetes namepsace that agents will run in; if unset, no binding will be made between the service account and GKE | `string` | `""` | no |
 | <a name="input_kube_service_account_name"></a> [kube\_service\_account\_name](#input\_kube\_service\_account\_name) | Name of the agent service account in Kubernetes | `string` | `"airplane-agent"` | no |

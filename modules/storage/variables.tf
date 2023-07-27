@@ -6,7 +6,7 @@ variable "agent_storage_domain" {
 
 variable "agent_storage_zone_slug" {
   type        = string
-  description = "Zone slug for use with self-hosted agent storage"
+  description = "Zone slug for use with self-hosted agent storage. Can contain lowercase letters and numbers only (no dashes, underscores, spaces, uppercase letters, etc.)."
   default     = "gke"
 }
 
