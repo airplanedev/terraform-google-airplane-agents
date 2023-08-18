@@ -38,6 +38,9 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="input_kube_namespace"></a> [kube\_namespace](#input\_kube\_namespace) | Kubernetes namepsace that agents will run in; if unset, no binding will be made between the service account and GKE | `string` | `""` | no |
 | <a name="input_kube_service_account_name"></a> [kube\_service\_account\_name](#input\_kube\_service\_account\_name) | Name of the agent service account in Kubernetes | `string` | `"airplane-agent"` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | Suffix to be added to all names; if unset, the zone slug will be used | `string` | `""` | no |
+| <a name="input_redis_auth_enabled"></a> [redis\_auth\_enabled](#input\_redis\_auth\_enabled) | Enable Redis username/password AUTH | `bool` | `false` | no |
+| <a name="input_redis_transit_encryption_mode"></a> [redis\_transit\_encryption\_mode](#input\_redis\_transit\_encryption\_mode) | Transit encryption for Redis instance. Set to either SERVER\_AUTHENTICATION to enable TLS or DISABLED. | `string` | `"DISABLED"` | no |
+| <a name="input_redis_version"></a> [redis\_version](#input\_redis\_version) | Version of redis to create | `string` | `"REDIS_7_0"` | no |
 | <a name="input_service_account_email"></a> [service\_account\_email](#input\_service\_account\_email) | Email of an existing service account to use for the agent; if unset, a new service account will be created | `string` | `""` | no |
 
 ## Outputs
@@ -49,4 +52,6 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="output_service_account_email"></a> [service\_account\_email](#output\_service\_account\_email) | n/a |
 | <a name="output_storage_bucket_name"></a> [storage\_bucket\_name](#output\_storage\_bucket\_name) | n/a |
 | <a name="output_storage_redis_addr"></a> [storage\_redis\_addr](#output\_storage\_redis\_addr) | n/a |
+| <a name="output_storage_redis_auth_string"></a> [storage\_redis\_auth\_string](#output\_storage\_redis\_auth\_string) | n/a |
+| <a name="output_storage_redis_ca_cert"></a> [storage\_redis\_ca\_cert](#output\_storage\_redis\_ca\_cert) | n/a |
 <!-- END_TF_DOCS -->
