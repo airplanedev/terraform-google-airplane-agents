@@ -53,8 +53,14 @@ variable "redis_auth_enabled" {
 
 variable "redis_transit_encryption_mode" {
   type        = string
-  description = "Transit encryption for redis instance. Set to either SERVER_AUTHENTICATION to enable TLS or DISABLED."
+  description = "Transit encryption for Redis instance. Set to either SERVER_AUTHENTICATION to enable TLS or DISABLED."
   default     = "DISABLED"
+}
+
+variable "redis_version" {
+  type        = string
+  description = "Version of redis to create"
+  default     = "REDIS_7_0"
 }
 
 variable "region" {
