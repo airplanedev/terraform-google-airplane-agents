@@ -40,6 +40,9 @@ resource "google_redis_instance" "agent_storage" {
   region         = var.region
   memory_size_gb = 1
   redis_version  = "REDIS_6_X"
+
+  auth_enabled            = var.redis_auth_enabled
+  transit_encryption_mode = var.redis_transit_encryption_mode
 }
 
 resource "google_compute_global_address" "agent_external_server" {
