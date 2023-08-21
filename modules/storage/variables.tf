@@ -45,6 +45,24 @@ variable "project" {
   description = "GCP project name"
 }
 
+variable "redis_auth_enabled" {
+  type        = bool
+  description = "Enable Redis username/password AUTH"
+  default     = false
+}
+
+variable "redis_transit_encryption_mode" {
+  type        = string
+  description = "Transit encryption for Redis instance. Set to either SERVER_AUTHENTICATION to enable TLS or DISABLED."
+  default     = "DISABLED"
+}
+
+variable "redis_version" {
+  type        = string
+  description = "Version of redis to create"
+  default     = "REDIS_7_0"
+}
+
 variable "region" {
   type        = string
   description = "Region for agent"
