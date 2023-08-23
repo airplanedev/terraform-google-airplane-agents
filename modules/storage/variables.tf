@@ -74,6 +74,12 @@ variable "service_account_email" {
   default     = ""
 }
 
+variable "storage_bucket_allowed_origins" {
+  type        = list(string)
+  description = "List of allowed origins to include in agent storage bucket CORS config"
+  default     = ["https://app.airplane.dev"]
+}
+
 variable "team_id" {
   type        = string
   description = "Airplane team ID - retrieve via `airplane auth info`"

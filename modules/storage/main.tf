@@ -26,6 +26,12 @@ resource "google_storage_bucket" "agent_storage" {
 
   public_access_prevention    = "enforced"
   uniform_bucket_level_access = true
+
+  cors {
+    origin          = var.storage_bucket_allowed_origins
+    method          = ["GET", "PUT", "POST"]
+    response_header = ["content-type", "x-goog-content-length-range"]
+  }
 }
 
 resource "google_storage_bucket_iam_member" "policy" {
