@@ -76,7 +76,7 @@ variable "service_account_email" {
 
 variable "storage_bucket_allowed_origins" {
   type        = list(string)
-  description = "List of allowed origins to include in agent storage bucket CORS config"
+  description = "List of allowed origins to include in the agent storage bucket CORS config"
   default     = ["https://app.airplane.dev"]
 }
 
