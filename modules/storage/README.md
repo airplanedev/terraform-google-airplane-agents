@@ -42,6 +42,7 @@ See the [Airplane docs](https://docs.airplane.dev/self-hosting/storage) for more
 | <a name="input_redis_transit_encryption_mode"></a> [redis\_transit\_encryption\_mode](#input\_redis\_transit\_encryption\_mode) | Transit encryption for Redis instance. Set to either SERVER\_AUTHENTICATION to enable TLS or DISABLED. | `string` | `"DISABLED"` | no |
 | <a name="input_redis_version"></a> [redis\_version](#input\_redis\_version) | Version of redis to create | `string` | `"REDIS_7_0"` | no |
 | <a name="input_service_account_email"></a> [service\_account\_email](#input\_service\_account\_email) | Email of an existing service account to use for the agent; if unset, a new service account will be created | `string` | `""` | no |
+| <a name="input_storage_bucket_allowed_origins"></a> [storage\_bucket\_allowed\_origins](#input\_storage\_bucket\_allowed\_origins) | List of allowed origins to include in the agent storage bucket CORS config | `list(string)` | <pre>[<br>  "https://app.airplane.dev"<br>]</pre> | no |
 
 ## Outputs
 
