@@ -51,6 +51,12 @@ variable "redis_auth_enabled" {
   default     = false
 }
 
+variable "redis_authorized_network" {
+  type        = string
+  description = "The full name of the GCE network to which the instance is connected. If left unspecified, the default network will be used."
+  default     = null
+}
+
 variable "redis_transit_encryption_mode" {
   type        = string
   description = "Transit encryption for Redis instance. Set to either SERVER_AUTHENTICATION to enable TLS or DISABLED."

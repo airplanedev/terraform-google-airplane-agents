@@ -47,6 +47,7 @@ resource "google_redis_instance" "agent_storage" {
   memory_size_gb = 1
   redis_version  = var.redis_version
 
+  authorized_network      = var.redis_authorized_network
   auth_enabled            = var.redis_auth_enabled
   transit_encryption_mode = var.redis_transit_encryption_mode
 }
